@@ -13,7 +13,8 @@ export async function GET() {
     });
 
     return NextResponse.json(userHistory);
-  } catch (error) {
+  } catch (e) {
+    console.error(e);
     return NextResponse.json(
       { error: "Failed to fetch history" },
       { status: 500 }

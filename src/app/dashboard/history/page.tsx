@@ -13,7 +13,7 @@ import { auth } from "@clerk/nextjs/server";
 import { db } from "@/lib/db";
 
 const History = async () => {
-  const { userId } = auth();
+  const { userId } = await auth();
   const userHistory = await db.aIOutput.findMany({
     where: {
       userId: userId as string,
@@ -24,7 +24,7 @@ const History = async () => {
   //     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // Convert **bold** to <strong>
   //     .replace(/\n/g, "<br>"); // Convert new lines to <br>
   // };
-  const formatText = (text) => {
+  const formatText = (text: string) => {
     // Replace code blocks first
     let formattedText = text.replace(
       /```(?:html)?\n([\s\S]*?)\n```/g,
@@ -46,7 +46,7 @@ const History = async () => {
     );
 
     // Wrap lists in ul tags
-    formattedText = formattedText.replace(/<li>.*?<\/li>/gs, (match) => {
+    formattedText = formattedText.replace(/<li>.*?<\/li>/g, (match) => {
       return `<ul class="list-disc pl-5 my-2">${match}</ul>`;
     });
 

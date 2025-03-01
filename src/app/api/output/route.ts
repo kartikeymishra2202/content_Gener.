@@ -29,6 +29,7 @@ export async function POST(req: Request) {
     revalidatePath("/");
     return NextResponse.json(createdNewOutput, { status: 200 });
   } catch (e) {
+    console.error(e);
     return new NextResponse("POST, NEW DOC Error", {
       status: 500,
     });

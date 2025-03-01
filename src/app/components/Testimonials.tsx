@@ -46,7 +46,7 @@ export default function Testimonials() {
         <div className="max-w-4xl mx-auto relative">
           <div className="text-center">
             <p className="text-xl italic mb-4">
-              "{testimonials[currentIndex].quote}"
+              {/* "{testimonials[currentIndex].quote}" */}
             </p>
             <p className="font-semibold">{testimonials[currentIndex].name}</p>
             <p className="text-gray-600">{testimonials[currentIndex].role}</p>

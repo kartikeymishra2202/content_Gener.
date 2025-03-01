@@ -20,6 +20,7 @@ export async function POST(req: Request) {
       process.env.STRIPE_WEBHOOK_SECRET!
     );
   } catch (e) {
+    console.error(e);
     return NextResponse.json({ error: "Invalid Signature " }, { status: 400 });
   }
 
@@ -53,6 +54,7 @@ export async function POST(req: Request) {
         });
       }
     } catch (e) {
+      console.error(e);
       return new NextResponse("Invalid user not authorize");
     }
   } else {
