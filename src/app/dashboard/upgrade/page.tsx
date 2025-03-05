@@ -14,11 +14,15 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
+type CheckoutResponse = { url: string };
+
 const Upgrade = () => {
   const router = useRouter();
 
   const handleOnClick = async () => {
-    const response = await axios.post("/api/upgrade/checkout");
+    const response = await axios.post<CheckoutResponse>(
+      "/api/upgrade/checkout"
+    );
     //push user to the stripe checkout page.
     router.push(response.data.url);
   };
