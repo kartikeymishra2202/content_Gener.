@@ -5,14 +5,17 @@ import "froala-editor/css/froala_style.min.css";
 import "froala-editor/css/froala_editor.pkgd.min.css";
 
 import FroalaEditor from "react-froala-wysiwyg";
+type EditorProps = {
+  content: string;
+};
 
-const formatText = (text) => {
+const formatText = (text: string) => {
   return text
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // Convert **bold** to <strong>
     .replace(/\n/g, "<br>"); // Convert new lines to <br>
 };
 
-const Editor = ({ content }) => {
+const Editor = ({ content }: EditorProps) => {
   const formattedContent = formatText(content);
   const [text, setText] = useState(formattedContent || "");
 
