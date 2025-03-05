@@ -117,7 +117,7 @@ const TemplatePage = () => {
       </form>
 
       <div className="my-10 ">
-        <Editor content={isLoading ? "Generating..." : aiOutput} />
+        <Editor content={isLoading ? "Generating..." : aiOutput ?? ""} />
       </div>
     </div>
   );
