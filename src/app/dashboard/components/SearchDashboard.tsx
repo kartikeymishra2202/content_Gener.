@@ -1,6 +1,6 @@
 import Auth from "@/app/components/Auth";
 import { SearchIcon } from "lucide-react";
-import React from "react";
+import React, { Suspense } from "react";
 import Categories from "./categories";
 const categories = [
   {
@@ -53,7 +53,9 @@ const SearchDashboard = ({
             onChange={(e) => onSearchInput(e.target.value)}
           />
         </div>
+
         <Categories items={categories} />
+
         <div className="flex items-center space-x-4 mx-1">
           <Auth />
         </div>

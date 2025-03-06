@@ -1,13 +1,13 @@
 "use client";
 import { contentTemplates } from "@/lib/content-templates";
 import Link from "next/link";
-import { ms } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const TemplateList = ({ searchInput }: { searchInput: string | undefined }) => {
   const [templateList, setTemplateList] = useState(contentTemplates);
 
-  const searchParams = ms();
+  const searchParams = useSearchParams();
   const searchCategory = searchParams.get("category");
   // console.log(searchCategory);
 
