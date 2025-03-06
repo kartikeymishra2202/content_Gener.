@@ -9,9 +9,8 @@ const Dashboard = () => {
   return (
     <div>
       <SearchDashboard onSearchInput={setSearchInput} />
-      <Suspense fallback={<div>Loading ..</div>}>
-        <TemplateList searchInput={searchInput} />
-      </Suspense>
+
+      <TemplateList searchInput={searchInput} />
     </div>
   );
 };
