@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import SearchDashboard from "./components/SearchDashboard";
 import TemplateList from "./components/template-list";
 
@@ -9,7 +9,9 @@ const Dashboard = () => {
   return (
     <div>
       <SearchDashboard onSearchInput={setSearchInput} />
-      <TemplateList searchInput={searchInput} />
+      <Suspense fallback={<div>Loading ..</div>}>
+        <TemplateList searchInput={searchInput} />
+      </Suspense>
     </div>
   );
 };
