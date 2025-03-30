@@ -8,11 +8,19 @@ export interface CategoryProps {
   children?: React.ReactNode;
 }
 
-const Categories = ({ items }: { items: CategoryProps[] }) => {
+const Categories = ({
+  items,
+  onCategorySelect,
+}: {
+  items: CategoryProps[];
+  onCategorySelect: (category: string | null) => void;
+}) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleCategoryClick = (value: string) => {
-    setSelectedCategory(selectedCategory === value ? null : value);
+    const newCategory = selectedCategory === value ? null : value;
+    setSelectedCategory(newCategory);
+    onCategorySelect(newCategory);
   };
 
   return (

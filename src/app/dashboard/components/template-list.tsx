@@ -1,29 +1,30 @@
 "use client";
 import { contentTemplates } from "@/lib/content-templates";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const TemplateList = ({ searchInput }: { searchInput: string | undefined }) => {
+const TemplateList = ({
+  searchInput,
+  selectedCategory,
+}: {
+  searchInput: string | undefined;
+  selectedCategory: string | null;
+}) => {
   const [templateList, setTemplateList] = useState(contentTemplates);
 
-  const searchParams = useSearchParams();
-  const searchCategory = searchParams.get("category");
-  // console.log(searchCategory);
-
-  // Category List se select karne ke liye ye use kar rahe hai.
+  // Category filtering useEffect
   useEffect(() => {
-    if (searchCategory === "All") {
+    if (selectedCategory === "All") {
       setTemplateList(contentTemplates);
-    } else if (searchCategory) {
+    } else if (selectedCategory) {
       const filteredTemplates = contentTemplates.filter(
-        (item) => item.category === searchCategory
+        (item) => item.category === selectedCategory
       );
       setTemplateList(filteredTemplates);
     } else {
       setTemplateList(contentTemplates);
     }
-  }, [searchCategory]);
+  }, [selectedCategory]);
 
   //Search Input useEffect
   useEffect(() => {

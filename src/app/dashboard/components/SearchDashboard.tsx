@@ -2,6 +2,7 @@ import Auth from "@/app/components/Auth";
 import { SearchIcon } from "lucide-react";
 import React from "react";
 import Categories from "./categories";
+
 const categories = [
   {
     name: "youtube",
@@ -36,10 +37,13 @@ const categories = [
     value: "Email",
   },
 ];
+
 const SearchDashboard = ({
   onSearchInput,
+  onCategorySelect,
 }: {
   onSearchInput: React.Dispatch<React.SetStateAction<string | undefined>>;
+  onCategorySelect: (category: string | null) => void;
 }) => {
   return (
     <div className="mx-5 py-2">
@@ -54,7 +58,7 @@ const SearchDashboard = ({
           />
         </div>
 
-        <Categories items={categories} />
+        <Categories items={categories} onCategorySelect={onCategorySelect} />
 
         <div className="flex items-center space-x-4 mx-1">
           <Auth />

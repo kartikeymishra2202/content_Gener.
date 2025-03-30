@@ -5,11 +5,18 @@ import TemplateList from "./components/template-list";
 
 const Dashboard = () => {
   const [searchInput, setSearchInput] = useState<string>();
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   return (
     <div>
-      <SearchDashboard onSearchInput={setSearchInput} />
-      <TemplateList searchInput={searchInput} />
+      <SearchDashboard
+        onSearchInput={setSearchInput}
+        onCategorySelect={setSelectedCategory}
+      />
+      <TemplateList
+        searchInput={searchInput}
+        selectedCategory={selectedCategory}
+      />
     </div>
   );
 };
