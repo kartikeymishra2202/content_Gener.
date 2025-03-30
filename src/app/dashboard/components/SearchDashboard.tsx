@@ -1,6 +1,6 @@
 import Auth from "@/app/components/Auth";
 import { SearchIcon } from "lucide-react";
-import React, { Suspense } from "react";
+import React from "react";
 import Categories from "./categories";
 const categories = [
   {

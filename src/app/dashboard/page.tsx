@@ -8,10 +8,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Suspense fallback={<div>Loading..</div>}>
-        <SearchDashboard onSearchInput={setSearchInput} />
-      </Suspense>
-
+      <SearchDashboard onSearchInput={setSearchInput} />
       <TemplateList searchInput={searchInput} />
     </div>
   );
