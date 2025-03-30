@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { useState } from "react";
 import SearchDashboard from "./components/SearchDashboard";
 import TemplateList from "./components/template-list";
 
